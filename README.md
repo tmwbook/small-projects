@@ -1,4 +1,4 @@
 small-projects
 ==============
 
-A collection of smaller projecs I work on
+A collection of smaller projects I work on
