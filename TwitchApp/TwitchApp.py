@@ -2,6 +2,8 @@ __author__ = "thomas"
 import authentication
 
 import requests
+#import pbs
+
 import json
 import getpass
 import subprocess
@@ -45,13 +47,16 @@ def getPassword():
 
 
 def getFollowing():
+    requestParams = {'limit': '100'}
     if len(username) > 0:
-        following = requests.get('https://api.twitch.tv/kraken/users/'+username+'/follows/channels')
+        following = requests.get('https://api.twitch.tv/kraken/users/'+username+'/follows/channels',\
+                                 params=requestParams)
         followingData = json.loads(following.content)
         return followingData
     else:
         getUsername()
-        following = requests.get('https://api.twitch.tv/kraken/users/'+username+'/follows/channels')
+        following = requests.get('https://api.twitch.tv/kraken/users/'+username+'/follows/channels',\
+                                 params=requestParams)
         followingData = json.loads(following.content)
         return followingData
 
@@ -95,11 +100,12 @@ def whoFollowingIsLive(following):
     stringForParams = stringForParams.strip(',')
     #would be requestParams but it would shadow global right now
     sendParams = {'Accept': 'application/vnd.twitchtv.v2+json',
-                  'channel': stringForParams}
+                  'channel': stringForParams,
+                  'limit': '100'}
     rawLive = requests.get('https://api.twitch.tv/kraken/streams', params=sendParams)
     live = json.loads(rawLive.content)
     for name, url, game in zip(live['streams'], live['streams'], live['streams']):
-        followingLive['name'].append(name['channel']['name'])
+        followingLive['name'].append(name['channel']['display_name'])
         followingLive['url'].append(url['channel']['url'])
         followingLive['game'].append(game['channel']['game'])
     return followingLive
