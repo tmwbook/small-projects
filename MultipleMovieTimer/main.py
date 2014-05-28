@@ -1,7 +1,7 @@
 from time import time
 import threading
 import os
-# hh:mm:ss
+#hh:mm:ss
 movie1Time = "00:00:00"
 movie2Time = "00:00:00"
 movie3Time = "00:00:00"
