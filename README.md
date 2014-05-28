@@ -3,6 +3,9 @@ small-projects
 
 A collection of smaller projects I work on
 
+Projects that have been deployed as EXE's:
+    MultipleMovieTimer
+
 Movie Timer
 ===========
 Download of the zip file for this program can be found at:
