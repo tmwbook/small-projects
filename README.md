@@ -4,7 +4,8 @@ small-projects
 A collection of smaller projects I work on
 
 Projects that have been deployed as EXE's:
-    MultipleMovieTimer
+
+   MultipleMovieTimer
 
 Movie Timer
 ===========
