@@ -38,15 +38,15 @@ Using the Movie Timer:
     + Pressing 'Save' will save all of the current times to Settings.ini
     
     + Currently the only way to manually change times is to change the times in Settings.ini, they are formatted
-    in 'hh:mm:ss'.  If you're feeling adventurous, give it a try.
+      in 'hh:mm:ss'.  If you're feeling adventurous, give it a try.
     
     + Pressing 'Reset Timers' will reset ALL of your timers.  If you press this by mistake, stop all of the running
-    timers, close the program and reopen the program.  This will load the times from the last time you saved.
+      timers, close the program and reopen the program.  This will load the times from the last time you saved.
     
     + If you can, try to NOT PRESS RESET WHILE TIMERS ARE RUNNNING.  I have not tested how this could mess up the threads,
       I have not added a conditional to check if timers are running, and I don't have a dialogue to check if you are
-      'Sure that you want to do this?'
+     'Sure that you want to do this?'
       
     + If you accidentall change the timers by highlighting the time and pushing a button, don't panic, you can press
-      'ctrl + z' to undo the change that you made.  The timer should fix itself if the timer was running while you made
+     'ctrl + z' to undo the change that you made.  The timer should fix itself if the timer was running while you made
       this change.
