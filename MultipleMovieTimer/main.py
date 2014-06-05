@@ -50,7 +50,7 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 
-class TestThread(QtCore.QThread):
+class TimerBackground(QtCore.QThread):
     index_finished = QtCore.pyqtSignal([str, QtCore.QObject])
 
     def __init__(self, timerStart, timerRunning, timerNumber, movieTime, textBrowser, parent=None):
@@ -69,27 +69,32 @@ class TestThread(QtCore.QThread):
         hours = time / 3600
         minutes = time / 60
         seconds = time % 60
+        #handles hours
         if hours == 0:
             formattedTime += "00:"
         elif len(str(hours)) == 1:
             formattedTime += '0' + str(hours) + ':'
         else:
             formattedTime += str(hours)
+        #handles minutes
         if minutes == 0:
             formattedTime += "00:"
-        elif minutes > 60:
+        elif minutes >= 60:
             newMinutes = minutes
-            while minutes > 60:
+            if minutes % 60 == 0:
+                newMinutes = 0
+            while newMinutes > 60:
                 newMinutes -= 60
-            if len(newMinutes) == 1:
+            if len(str(newMinutes)) == 1:
                 formattedTime += '0' + str(newMinutes) + ':'
             else:
-                formattedTime += str(newMinutes)
+                formattedTime += str(newMinutes) + ':'
         else:
             if len(str(minutes)) == 1:
                 formattedTime += '0' + str(minutes) + ':'
             else:
                 formattedTime += str(minutes)
+        #handles seconds
         if len(str(seconds)) == 1:
             formattedTime += '0' + str(seconds)
         else:
@@ -324,7 +329,7 @@ class Ui_Form1(QtGui.QWidget):
         self.DesignedBy.setText(_translate("Form", "This program was\n"
 "designed by:", None))
         self.sourceAt.setText(_translate("Form", " Source is available at:", None))
-        self.label.setText(_translate("Form", "V 1.0", None))
+        self.label.setText(_translate("Form", "V 1.2", None))
         self.startTwo.setText(_translate("Form", "Start / Stop", None))
         self.startOne.setText(_translate("Form", "Start / Stop", None))
         self.startThree.setText(_translate("Form", "Start / Stop", None))
@@ -377,7 +382,7 @@ class Ui_Form1(QtGui.QWidget):
         if not timer1Running:
             timer1Running = True
             timer1Start = time()
-            self.thread1 = TestThread(timer1Start, timer1Running, 1, movie1Time, self.textBrowser_6)
+            self.thread1 = TimerBackground(timer1Start, timer1Running, 1, movie1Time, self.textBrowser_6)
             self.thread1.index_finished.connect(self.updateGUITimers)
 
             def loopThread():
@@ -394,7 +399,7 @@ class Ui_Form1(QtGui.QWidget):
         if not timer2Running:
             timer2Running = True
             timer2Start = time()
-            self.thread2 = TestThread(timer2Start, timer2Running, 2, movie2Time, self.textBrowser_2)
+            self.thread2 = TimerBackground(timer2Start, timer2Running, 2, movie2Time, self.textBrowser_2)
             self.thread2.index_finished.connect(self.updateGUITimers)
 
             def loopThread():
@@ -411,7 +416,7 @@ class Ui_Form1(QtGui.QWidget):
         if not timer3Running:
             timer3Running = True
             timer3Start = time()
-            self.thread3 = TestThread(timer3Start, timer3Running, 3, movie3Time, self.textBrowser_5)
+            self.thread3 = TimerBackground(timer3Start, timer3Running, 3, movie3Time, self.textBrowser_5)
             self.thread3.index_finished.connect(self.updateGUITimers)
 
             def loopThread():
@@ -428,7 +433,7 @@ class Ui_Form1(QtGui.QWidget):
         if not timer4Running:
             timer4Running = True
             timer4Start = time()
-            self.thread4 = TestThread(timer4Start, timer4Running, 4, movie4Time, self.textBrowser_3)
+            self.thread4 = TimerBackground(timer4Start, timer4Running, 4, movie4Time, self.textBrowser_3)
             self.thread4.index_finished.connect(self.updateGUITimers)
 
             def loopThread():
@@ -445,7 +450,7 @@ class Ui_Form1(QtGui.QWidget):
         if not timer5Running:
             timer5Running = True
             timer5Start = time()
-            self.thread5 = TestThread(timer5Start, timer5Running, 5, movie5Time, self.textBrowser_4)
+            self.thread5 = TimerBackground(timer5Start, timer5Running, 5, movie5Time, self.textBrowser_4)
             self.thread5.index_finished.connect(self.updateGUITimers)
 
             def loopThread():
