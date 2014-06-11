@@ -6,6 +6,8 @@ A collection of smaller projects I work on
 Projects that have been deployed as EXE's:
 
    MultipleMovieTimer  Ver: 1.2
+   
+   TaskTracker  Ver: 1.0
 
 Movie Timer
 ===========
@@ -57,3 +59,30 @@ Using the Movie Timer:
     + If you accidentall change the timers by highlighting the time and pushing a button, 
       don't panic, you can press 'ctrl + z' to undo the change that you made.  The timer 
       should fix itself if the timer was running while you made this change.
+      
+      
+TaskTracker
+===========
+Download of the zip file for this program can be found at:                      
+https://www.mediafire.com/?m9ekamf4gbgpx1c
+
+    1.  If you are launching this with Python, just launch the script by right clicking it 
+        and selecting 'Open with.." and then Python.  You could also run it from the command 
+        line.
+        
+        If you downloaded the file above and are trying to launch the program, continue 
+        reading the instructions below.
+        
+    2.  Move the .zip file that you downloaded into the folder(directory) that you want to 
+        keep the program in.
+    
+    3.  Right click the ziped folderd and press 'Extract All'
+    
+    4.  Here you can choose the location that you want the file to be extracted to, but the
+        default is the location of the file that you are currently extracting.
+        
+        5a.  IE: If I had 'TaskTracker v1.0.zip' on my desktop, Windows would try to 
+             extract this folder to '~/Desktop/TaskTracker v1.0'
+    
+    5.  To launch the program, double click the file named "TaskTracker.exe", or "TaskTracker.py".
+    
