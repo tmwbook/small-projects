@@ -5,12 +5,12 @@ A collection of smaller projects I work on
 
 Projects that have been deployed as EXE's:
 
-   MultipleMovieTimer
+   MultipleMovieTimer  Ver: 1.2
 
 Movie Timer
 ===========
-Download of the zip file for this program can be found at:
-http://www.mediafire.com/download/4x8zz2m3m3x1yiq/MultipleMovieTimer.zip
+Download of the zip file for this program can be found at:                      
+https://www.mediafire.com/?ybb8k3xfjbr4vsq
 
 Steps to set up the program:
     
