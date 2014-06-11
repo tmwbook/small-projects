@@ -81,7 +81,7 @@ https://www.mediafire.com/?m9ekamf4gbgpx1c
     4.  Here you can choose the location that you want the file to be extracted to, but the
         default is the location of the file that you are currently extracting.
         
-        5a.  IE: If I had 'TaskTracker v1.0.zip' on my desktop, Windows would try to 
+        4a.  IE: If I had 'TaskTracker v1.0.zip' on my desktop, Windows would try to 
              extract this folder to '~/Desktop/TaskTracker v1.0'
     
     5.  To launch the program, double click the file named "TaskTracker.exe", or "TaskTracker.py".
