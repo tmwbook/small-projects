@@ -37,8 +37,13 @@ def get_all_episodes_in_season(episode_tables):
     return all_seasons
 
 
-def get_episode_info(season, episode_num):
-    pass
+def get_episode_info(all_seasons, season, episode_num):
+    return extract_titles(all_seasons[season][episode_num - 1])
+
+
+def extract_titles(title_code):
+    eng_title = str(title_code[0]).split(">")[1].split("<")[0]
+    return [eng_title]
 
 
 def get_page_source(anime_name):
@@ -59,4 +64,5 @@ def format_name(title):
 if __name__ == "__main__":
     test_anime = raw_input()
     page_response = get_page_source(test_anime)
-    print get_all_episodes_in_season(find_episode_tables(page_response))#testing
+    all_seasons = get_all_episodes_in_season(find_episode_tables(page_response))
+    print get_episode_info(all_seasons, 1, 1)[0] #testing for title name
