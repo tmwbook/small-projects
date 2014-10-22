@@ -44,7 +44,9 @@ def get_episode_info(all_seasons, season, episode_num):
 def extract_titles(title_code):
     eng_title = str(title_code[0]).split(">")[1].split("<")[0]
     romaji_title = title_code[0].find("i").getText()
-    return [eng_title, romaji_title]
+    ja_title = title_code[0].find("span",
+                                  attrs={"class": "t_nihongo_kanji"}).getText()
+    return [eng_title, romaji_title, ja_title]
 
 
 def get_page_source(anime_name):
@@ -66,4 +68,4 @@ if __name__ == "__main__":
     test_anime = raw_input()
     page_response = get_page_source(test_anime)
     all_seasons = get_all_episodes_in_season(find_episode_tables(page_response))
-    print get_episode_info(all_seasons, 1, 1)[1] #testing for title name
+    print get_episode_info(all_seasons, 1, 1)[2] #testing for title name
